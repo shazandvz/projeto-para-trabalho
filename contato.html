@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Petshop</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script>
+        // Função para verificar se a data escolhida é válida
+        function validarData() {
+            const dataEscolhida = document.getElementById("data-consulta").value;
+            const datasBloqueadas = [
+                "2024-11-15", // Exemplo de data bloqueada
+                "2024-11-25", // Outro exemplo de data bloqueada
+                "2024-12-01"  // Mais datas bloqueadas
+            ];
+
+            // Verifica se a data escolhida está na lista de datas bloqueadas
+            if (datasBloqueadas.includes(dataEscolhida)) {
+                alert("A data selecionada não está disponível para consulta. Por favor, escolha outra data.");
+                document.getElementById("data-consulta").value = ""; // Limpa a data
+            }
+        }
+
+        // Função para exibir a mensagem de agradecimento
+        function mostrarAgradecimento(event) {
+            event.preventDefault(); // Evita o envio real do formulário
+
+            // Exibe a mensagem de agradecimento
+            alert("Obrigado por entrar em contato! Sua consulta foi agendada com sucesso.");
+            
+            // Limpa o formulário após o envio
+            document.getElementById("contatoForm").reset();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Petshop - Remédios para Animais</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+            <a href="compras.html">Compras</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para saber mais sobre nossos produtos ou agendar uma consulta para seu animal!</p>
+        
+        <!-- Seção de Contato -->
+        <section id="contato" style="padding: 20px; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h2 style="text-align: center;">Entre em Contato e Agende Sua Consulta</h2>
+            <p style="text-align: center; max-width: 600px;">Preencha o formulário abaixo e agende a consulta para seu pet. Verifique os dias disponíveis para a consulta!</p>
+
+            <!-- Formulário de Contato -->
+            <form id="contatoForm" action="enviar.php" method="post" onsubmit="mostrarAgradecimento(event)" style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 500px;">
+                <label for="nome" style="align-self: flex-start;">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+
+                <label for="email" style="align-self: flex-start;">E-mail:</label>
+                <input type="email" id="email" name="email" required placeholder="Seu e-mail" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+
+                <label for="mensagem" style="align-self: flex-start;">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Escreva sua mensagem" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+
+                <label for="data-consulta" style="align-self: flex-start;">Escolha a data para a consulta:</label>
+                <!-- Calendário para agendar a consulta -->
+                <input type="date" id="data-consulta" name="data-consulta" required style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" onchange="validarData()">
+
+                <p style="color: #555; font-size: 0.9em;">Por favor, escolha uma data disponível para consulta. Caso o dia não esteja disponível, entraremos em contato para agendar uma nova data.</p>
+
+                <button type="submit" style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #4CAF50; color: white; cursor: pointer;">Enviar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
