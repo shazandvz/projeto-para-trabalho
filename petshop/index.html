@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petshop - Remédios para Animais</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #42a5f5; /* Azul vibrante */
+            padding: 10px 0;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav a:hover {
+            background-color: #1e88e5;
+        }
+
+        /* Destaques */
+        .destaques {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e3f2fd; /* Azul claro */
+        }
+
+        .destaques h2 {
+            color: #0d47a1; /* Azul escuro */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .servicos {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .servico {
+            width: 30%;
+            min-width: 250px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .servico:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .servico h3 {
+            color: #1e88e5;
+            margin-bottom: 10px;
+        }
+
+        .servico p {
+            color: #555;
+        }
+
+        /* Depoimentos */
+        .depoimentos {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e8f5e9; /* Verde claro */
+        }
+
+        .depoimentos h2 {
+            color: #2e7d32; /* Verde escuro */
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .depoimento {
+            max-width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .depoimento span {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #388e3c; /* Verde moderado */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .servicos {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .servico {
+                width: 90%;
+            }
+
+            .depoimento {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho do site -->
+    <header>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Consultoria</a>
+            <a href="compras.html">Entregas</a>
+            <a href="registro.html">Resultado de exame</a>
+        </nav>
+    </header>
+
+    <!-- Mais informações na seção inicial -->
+    <section id="destaques" class="destaques">
+        <h2>O que oferecemos</h2>
+        <div class="servicos">
+            <div class="servico">
+                <h3>Consultoria Veterinária</h3>
+                <p>Oferecemos orientação especializada para garantir o bem-estar e a saúde do seu pet.</p>
+            </div>
+            <div class="servico">
+                <h3>Produtos de Qualidade</h3>
+                <p>Selecionamos os melhores produtos e suplementos para atender às necessidades de cada animal.</p>
+            </div>
+            <div class="servico">
+                <h3>Entrega Rápida</h3>
+                <p>Levamos nossos produtos até você com rapidez e segurança, em qualquer lugar da cidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos de clientes -->
+    <section id="depoimentos" class="depoimentos">
+        <h2>O que nossos clientes dizem</h2>
+        <div class="depoimento">
+            <p>"Excelente atendimento! Meu cachorro recebeu o melhor cuidado possível. Recomendo a todos!"</p>
+            <span>– João Silva</span>
+        </div>
+        <div class="depoimento">
+            <p>"Produtos de alta qualidade e entrega super rápida. Meu gato adorou o suplemento vitamínico!"</p>
+            <span>– Maria Oliveira</span>
+        </div>
+        <div class="depoimento">
+            <p>"A consultoria veterinária fez toda a diferença para a saúde do meu pet. Muito obrigada!"</p>
+            <span>– Ana Souza</span>
+        </div>
+    </section>
+
+</body>
+</html>

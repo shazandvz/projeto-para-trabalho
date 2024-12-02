@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Petshop</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #42a5f5;
+            padding: 15px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav a:hover {
+            background-color: #1e88e5;
+        }
+
+        /* Conteúdo principal */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #0d47a1;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Seção de contato */
+        section#contato {
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
+        section#contato h2 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        section#contato p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        form button {
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #43a047;
+        }
+
+        /* Aviso de datas bloqueadas */
+        form p {
+            color: #f44336;
+            font-size: 0.9rem;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dataInput = document.getElementById("data-consulta");
+            const datasBloqueadas = [
+                "2024-11-15", "2024-11-25", "2024-12-01", 
+                "2024-12-05", "2024-12-10", "2024-12-15"
+            ];
+
+            // Adiciona as datas bloqueadas ao campo de calendário
+            dataInput.addEventListener("input", function () {
+                const dataEscolhida = dataInput.value;
+                if (datasBloqueadas.includes(dataEscolhida)) {
+                    alert("A data selecionada não está disponível. Escolha outra data.");
+                    dataInput.value = ""; // Limpa a data
+                }
+            });
+
+            // Configura datas bloqueadas no calendário
+            dataInput.addEventListener("focus", function () {
+                dataInput.setAttribute("min", new Date().toISOString().split("T")[0]); // Define hoje como data mínima
+            });
+
+            // Exibe uma mensagem de agradecimento ao enviar
+            document.getElementById("contatoForm").addEventListener("submit", function (event) {
+                event.preventDefault();
+                alert("Obrigado por entrar em contato! Sua consulta foi agendada com sucesso.");
+                this.reset();
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Petshop - Remédios para Animais</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+            <a href="compras.html">Compras</a>
+            <a href="registro.html">Resultado de exame</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Contato</h2>
+        <p>Entre em contato para agendar consultas e tirar suas dúvidas!</p>
+
+        <!-- Seção de Contato -->
+        <section id="contato">
+            <h2>Agende Sua Consulta</h2>
+            <p>Preencha o formulário abaixo e escolha uma data disponível.</p>
+
+            <!-- Formulário -->
+            <form id="contatoForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Escreva sua mensagem"></textarea>
+
+                <label for="data-consulta">Escolha sua data:</label>
+                <input type="date" id="data-consulta" name="data-consulta" required>
+                <p>Datas bloqueadas: 15/11, 25/11, 01/12, 05/12, 10/12, 15/12.</p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

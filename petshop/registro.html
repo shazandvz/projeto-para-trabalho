@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atestado Veterinário - Petshop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1, h3 {
+            color: #bdecb6;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #atestado {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #atestado h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .info strong {
+            display: inline-block;
+            width: 150px;
+        }
+
+        #btnImprimir {
+            margin-top: 15px;
+            background-color: #007BFF;
+        }
+
+        #btnImprimir:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laudo Veterinário - Petshop</h1>
+
+    <h3>Gerar laudo automático para o animal:</h3>
+    <button onclick="gerarAtestado()">Gerar Laudo Automático</button>
+
+    <!-- Exibição do atestado -->
+    <div id="atestado" style="display:none;">
+        <h2>Laudo Veterinário</h2>
+        <div class="info"><strong>Veterinário:</strong> <span id="atestadoVeterinario">Dra. Maria Silva</span></div>
+        <div class="info"><strong>Animal:</strong> <span id="atestadoAnimal">Rex (Cachorro)</span></div>
+        <div class="info"><strong>Data:</strong> <span id="atestadoData"></span></div>
+        <div class="info"><strong>Resultado do Exame:</strong> 
+            <p id="atestadoResultado">
+                O animal foi examinado e apresenta boa condição geral de saúde. Detectou-se uma leve infestação de pulgas, sendo recomendado tratamento antiparasitário.
+            </p>
+        </div>
+        <div class="info"><strong>Medicamentos Recomendados:</strong> 
+            <p id="atestadoMedicamentos">
+                - Antipulgas oral: 1 comprimido por dia durante 5 dias. <br>
+                - Shampoo antipulgas: Aplicar semanalmente por 4 semanas.
+            </p>
+        </div>
+        <div class="info"><strong>Observações:</strong> 
+            <p id="atestadoObservacoes">
+                Manter o ambiente do animal limpo e realizar a desinfestação do local com produtos apropriados.
+            </p>
+        </div>
+        <div class="info"><strong>Agendamento de Revisão:</strong> 
+            <p id="atestadoRevisao"></p>
+        </div>
+        <button id="btnImprimir" onclick="imprimirAtestado()">Imprimir Laudo do Exame</button>
+    </div>
+
+    <script>
+        function gerarAtestado() {
+            const dataAtual = new Date();
+            const dataFormatada = dataAtual.toLocaleDateString("pt-BR");
+
+            // Calculando a data da revisão (15 dias após a consulta)
+            const dataRevisao = new Date(dataAtual);
+            dataRevisao.setDate(dataAtual.getDate() + 15);
+            const dataRevisaoFormatada = dataRevisao.toLocaleDateString("pt-BR");
+
+            // Preenchendo os campos do atestado
+            document.getElementById("atestadoData").textContent = dataFormatada;
+            document.getElementById("atestadoRevisao").textContent = `A revisão está agendada para o dia ${dataRevisaoFormatada}.`;
+
+            // Exibindo o atestado
+            document.getElementById("atestado").style.display = "block";
+        }
+
+        function imprimirAtestado() {
+            const atestadoDiv = document.getElementById("atestado");
+            const novaJanela = window.open("", "_blank", "width=800,height=600");
+            novaJanela.document.write("<html><head><title>Atestado Veterinário</title></head><body>");
+            novaJanela.document.write(atestadoDiv.innerHTML);
+            novaJanela.document.write("</body></html>");
+            novaJanela.document.close();
+            novaJanela.print();
+        }
+    </script>
+</body>
+</html>
