@@ -1,0 +1,109 @@
+/* General reset for the page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Article and Section */
+article h2 {
+    font-size: 2em;
+    color: #FF6347; /* Tomato color for headings */
+    margin-bottom: 10px;
+}
+
+article p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Align images - Centering images within the articles */
+article img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar (aside) styling */
+aside {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+aside h3 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+aside ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+aside ol li {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Sidenote Section */
+.sidenote1 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.sidenote1 h3 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.sidenote1 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; /* Controls image size */
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Responsive image class */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Clear fix for floated elements */
+.clear {
+    clear: both;
+}
