@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio pessoal de desenvolvedor. Conheça meus projetos e entre em contato!">
+    <title>Currículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* Estilo personalizado */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .project-card {
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card .card-body {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #f8f9fa;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer a:hover {
+            color: #007bff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 15px;
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            background-color: #007bff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Animação suave para os projetos */
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilo para a imagem em tela cheia */
+        #imagemFullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semitransparente */
+            display: none; /* Inicialmente oculto */
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #imagemFullscreen img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* Botão de fechar */
+        #fecharFullscreen {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="m-0">Meu Portfólio</h1>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-white" href="#sobre" aria-label="Seção Sobre Mim">Sobre
+                            Mim</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#projetos" aria-label="Seção Projetos">Projetos</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contato" aria-label="Seção Contato">Contato</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção "Sobre Mim" -->
+    <section id="sobre" class="p-5">
+        <div class="container">
+            <h2 class="section-title text-center">Sobre Mim</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="imagem 2.png" alt="Imagem sobre mim" class="hero-image">
+                </div>
+                <div class="col-md-6">
+                    <p class="about-text">Sou um desenvolvedor focado em criar soluções digitais intuitivas e funcionais.
+                        Com experiência sólida em front-end e back-end, estou sempre em busca de aprender novas tecnologias e
+                        aprimorar minhas habilidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Projetos" -->
+    <section id="projetos" class="p-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Meus Projetos</h2>
+            <div class="row" id="projects-container">
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="Captura de tela 2025-02-19 150959.png" alt="Projeto 1" class="img-thumbnail project-img">
+                        <div class="card-body">
+                            <h4>Projeto 1</h4>
+                            <p>Criei um projeto para uma clínica de petshop, onde é possível comprar medicamentos para seu animal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="Captura de tela 2025-02-19 151108.png" alt="Projeto 2" class="img-thumbnail project-img">
+                        <div class="card-body">
+                            <h4>Projeto 2</h4>
+                            <p>Este projeto permite agendar atendimentos em caso de emergência com seu animal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="project-card">
+                        <img src="Captura de tela 2025-02-19 153458.png" alt="Projeto 3" class="img-thumbnail project-img">
+                        <div class="card-body">
+                            <h4>Projeto 3</h4>
+                            <p>Este projeto foi desenvolvido para enviar análises clínicas pós-atendimento de animais, com resultados
+                                detalhados por e-mail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "Contato" -->
+    <section id="contato" class="p-5">
+        <div class="container">
+            <h2 class="section-title text-center">Contato</h2>
+            <form action="#" method="POST" class="contact-form" onsubmit="return validateForm(event)">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="Seu e-mail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" placeholder="Sua senha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensagem" class="form-label">Mensagem</label>
+                    <textarea class="form-control" id="mensagem" rows="4" placeholder="Sua mensagem" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Área para exibir a imagem em tela cheia -->
+    <div id="imagemFullscreen">
+        <button id="fecharFullscreen">&times;</button>
+        <img id="imagemEmTelaCheia" src="" alt="Imagem Ampliada">
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p>&copy; 2025 Meu Portfólio</p>
+            <div>
+                <a href="#" class="text-white"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="text-white"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="text-white"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Animação e Validação de Formulário -->
+    <script>
+        // Validação de formulário
+        function validateForm(event) {
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const mensagem = document.getElementById("mensagem").value;
+
+            if (!nome || !email || !senha || !mensagem) {
+                alert("Por favor, preencha todos os campos.");
+                event.preventDefault();
+                return false;
+            }
+
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                alert("Por favor, insira um e-mail válido.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (senha.length < 6) {
+                alert("A senha deve ter pelo menos 6 caracteres.");
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        // Animação suave para a exibição dos projetos
+        window.addEventListener('scroll', function () {
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(function (project) {
+                const rect = project.getBoundingClientRect();
+                if (rect.top <= window.innerHeight - 100) {
+                    project.classList.add('visible');
+                }
+            });
+        });
+
+        // Exibição de imagem em tela cheia
+        const projectImages = document.querySelectorAll('.project-img');
+        const imagemFullscreen = document.getElementById('imagemFullscreen');
+        const imagemEmTelaCheia = document.getElementById('imagemEmTelaCheia');
+        const fecharFullscreen = document.getElementById('fecharFullscreen');
+
+        projectImages.forEach(image => {
+            image.addEventListener('click', function () {
+                const imageUrl = image.src;
+                imagemEmTelaCheia.src = imageUrl;
+                imagemFullscreen.style.display = 'flex';
+            });
+        });
+
+        fecharFullscreen.addEventListener('click', function () {
+            imagemFullscreen.style.display = 'none';
+        });
+
+        imagemFullscreen.addEventListener('click', function (event) {
+            if (event.target === imagemFullscreen) {
+                imagemFullscreen.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
