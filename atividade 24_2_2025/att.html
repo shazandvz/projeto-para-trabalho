@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Usuários</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Personalizando a exibição */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+        .card-custom {
+            margin-bottom: 20px;
+        }
+        .spinner-border-custom {
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">🔍 Buscar Usuário</h2>
+
+        <!-- Campo de entrada e botão -->
+        <div class="input-group mb-3">
+            <input type="number" id="userId" class="form-control" placeholder="Digite o ID do usuário (1 a 10)" min="1" max="10">
+            <button id="searchButton" class="btn btn-custom">Buscar</button>
+        </div>
+
+        <!-- Área para exibir os resultados -->
+        <div id="userInfo" class="mt-4"></div>
+
+        <!-- Botão para limpar os resultados -->
+        <button id="clearButton" class="btn btn-danger mt-3">Limpar Resultados</button>
+    </div>
+
+    <script>
+        // Função para buscar usuário(s)
+        document.getElementById("searchButton").addEventListener("click", function() {
+            let userId = document.getElementById("userId").value;
+            
+            // Limpar resultados antigos
+            document.getElementById("userInfo").innerHTML = '';
+            
+            // Exibir spinner enquanto busca
+            document.getElementById("userInfo").innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border spinner-border-custom" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+            `;
+            
+            // Validação de ID entre 1 e 10
+            if (userId < 1 || userId > 10 || isNaN(userId)) {
+                setTimeout(() => {
+                    document.getElementById("userInfo").innerHTML = `
+                        <div class="alert alert-warning">Por favor, insira um ID válido entre 1 e 10.</div>
+                    `;
+                }, 1000);
+                return;
+            }
+
+            // Requisição para obter o usuário
+            fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Usuário não encontrado');
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    // Exibir os dados do usuário no HTML
+                    setTimeout(() => {
+                        document.getElementById("userInfo").innerHTML = `
+                            <div class="card card-custom">
+                                <div class="card-body">
+                                    <h5 class="card-title">${user.name}</h5>
+                                    <p class="card-text"><strong>Email:</strong> ${user.email}</p>
+                                    <p class="card-text"><strong>Telefone:</strong> ${user.phone}</p>
+                                    <p class="card-text"><strong>Empresa:</strong> ${user.company.name}</p>
+                                </div>
+                            </div>
+                        `;
+                    }, 1000);
+                })
+                .catch(error => {
+                    setTimeout(() => {
+                        document.getElementById("userInfo").innerHTML = `
+                            <div class="alert alert-danger">Usuário não encontrado. Tente novamente!</div>
+                        `;
+                    }, 1000);
+                });
+        });
+
+        // Função para limpar os resultados
+        document.getElementById("clearButton").addEventListener("click", function() {
+            document.getElementById("userId").value = ''; // Limpar campo de entrada
+            document.getElementById("userInfo").innerHTML = ''; // Limpar resultados
+        });
+    </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>
