@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo - João da Silva (Estudante de Desenvolvimento)</title>
+    <title>Currículo - Pedro Henrique (Estudante de Desenvolvimento)</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap">
 </head>
 <body>
     <div class="container">
         <!-- Barra de navegação lateral com imagens e opções -->
         <nav class="sidebar">
-            <img src="avatar.jpg" alt="Pedro henrique martins" class="avatar">
             <ul>
                 <li><a href="#sobre-mim" class="nav-link">Sobre Mim</a></li>
-                <li><a href="#educacao" class="nav-link">Educação</a></li>
+                <li><a href="#biografia" class="nav-link">Biografia</a></li> <!-- Link para Biografia -->
+                <li><a href="#experiencia" class="nav-link">Experiência Profissional</a></li>
                 <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
                 <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#contatos" class="nav-link">Contatos</a></li>
             </ul>
         </nav>
 
         <!-- Conteúdo principal -->
         <main class="content">
+            <!-- Seção da Foto -->
+            <section id="foto-perfil" class="section">
+                <img src="imagens/foto2.jpg" alt="Foto de Pedro Henrique" class="foto-perfil">
+            </section>
+
             <section id="sobre-mim" class="section">
                 <h2>Sobre Mim</h2>
                 <p>Sou um estudante apaixonado por tecnologia e desenvolvimento. Atualmente, estou aprendendo a programar e buscando aprimorar minhas habilidades em desenvolvimento web e mobile. Tenho interesse em aprender mais sobre inteligência artificial, design de interfaces e criação de aplicações escaláveis. Meu objetivo é conseguir uma posição de estágio ou um projeto freelance para ganhar mais experiência prática.</p>
             </section>
 
+            <!-- Seção destacada de Biografia -->
+            <section id="biografia" class="section important-section">
+                <h2>Biografia</h2>
+                <p>Meu nome é Pedro Henrique, tenho 17 anos e sou estudante do SENAI no curso de Desenvolvimento de Sistemas. Desde jovem, me interessei por tecnologia e programação. No SENAI, aprendi linguagens como HTML, CSS, JavaScript e Python, e estou me preparando para os desafios do mercado de trabalho. Busco sempre aprender mais, desenvolvendo projetos pessoais e acompanhando as tendências da área. Meu objetivo é ganhar experiência prática e me tornar um profissional especializado em tecnologia.</p>
+            </section>
+
+            <!-- Seção de Experiência Profissional -->
             <section id="experiencia" class="section">
                 <h2>Experiência Profissional</h2>
                 <ul>
-                    <li><strong>Estágio em Desenvolvimento Web</strong> - Empresa XYZ (2024 - Presente)
+                    <li><strong>Estágio em Desenvolvimento Web</strong> - Empresa XYZ (2025 - Presente)
                         <p>Auxiliei no desenvolvimento de páginas web responsivas utilizando HTML, CSS e JavaScript. Trabalhei com a equipe para implementar funcionalidades e melhorias no site.</p>
                     </li>
                     <li><strong>Freelancer em Desenvolvimento de Sites</strong> - Projeto Independente (2023 - 2024)
@@ -37,7 +51,8 @@
                     </li>
                 </ul>
             </section>
-            
+
+            <!-- Seção de Habilidades -->
             <section id="habilidades" class="section">
                 <h2>Habilidades</h2>
                 <ul>
@@ -48,35 +63,44 @@
                 </ul>
             </section>
 
+            <!-- Seção de Projetos -->
             <section id="projetos" class="section">
                 <h2>Projetos</h2>
                 <div class="project-container">
                     <div class="project-card">
-                        <img src="cosmedico veterinario.png" alt="Projeto 1" class="project-image">
-                        <h3>venda de cosmédicos veterinario</h3>
+                        <img src="imagens/cosmedico veterinario.png" alt="Projeto 1" class="project-image">
+                        <h3>Venda de Cosméticos Veterinários</h3>
                         <p>Desenvolvi meu próprio site pessoal para compartilhar meus projetos e aprendizados. Utilizei HTML, CSS e JavaScript para construir o site.</p>
-                        <a href="cosmedico veterinario.png" target="_blank" class="project-link">Ver Projeto</a>
+                        <a href="imagens/cosmedico veterinario.png" target="_blank" class="project-link">Ver Projeto</a>
                     </div>
 
                     <div class="project-card">
-                        <img src="agendamento veterionario.png" alt="Projeto 2" class="project-image">
-                        <h3>Agendamento veterinario</h3>
-                        <p>Criei um site onde as pessoas conseguem agendar una consulta para seu animal. Utilizei HTML, CSS e JavaScript para construir o site.</p>
-                        <a href="agendamento veterionario.png" target="_blank" class="project-link">Ver Projeto</a>
+                        <img src="imagens/agendamento veterionario.png" alt="Projeto 2" class="project-image">
+                        <h3>Agendamento Veterinário</h3>
+                        <p>Criei um site onde as pessoas conseguem agendar uma consulta para seu animal. Utilizei HTML, CSS e JavaScript para construir o site.</p>
+                        <a href="imagens/agendamento veterionario.png" target="_blank" class="project-link">Ver Projeto</a>
                     </div>
-
-                    <!-- Adicionar mais projetos -->
                 </div>
             </section>
+
+            <!-- Seção de Contatos -->
             <section id="contatos" class="section">
                 <h2>Contatos</h2>
                 <ul>
                     <li><strong>Email:</strong> pedromartinsampla@gmail.com</li>
                     <li><strong>Telefone:</strong> (47) 99235-9458</li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/shazandvz/projeto-para-trabalho.git" target="_blank">github.com/pedro-henrique</a></li>
                 </ul>
             </section>
-            
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <p>&copy; 2025 Pedro Henrique. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/shazandvz/projeto-para-trabalho.git" target="_blank">GitHub</a>
+            </div>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
