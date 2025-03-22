@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro Online</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #container { max-width: 400px; margin: auto; padding: 20px; }
+        #time { font-size: 2em; margin: 20px; display: block; }
+        button { padding: 10px; margin: 5px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Cronômetro</h1>
+        <span id="time">00:00:00</span>
+        <br>
+        <button onclick="startTimer()">Iniciar</button>
+        <button onclick="pauseTimer()">Pausar</button>
+        <button onclick="resetTimer()">Resetar</button>
+    </div>
+
+    <script>
+        let timer;
+        let seconds = 0;
+        let running = false;
+
+        function startTimer() {
+            if (!running) {
+                running = true;
+                timer = setInterval(() => {
+                    seconds++;
+                    updateDisplay();
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            clearInterval(timer);
+            running = false;
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            running = false;
+            seconds = 0;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            let hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+            let secs = String(seconds % 60).padStart(2, '0');
+            document.getElementById("time").innerText = `${hrs}:${mins}:${secs}`;
+        }
+    </script>
+</body>
+</html>
